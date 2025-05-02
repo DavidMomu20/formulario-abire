@@ -85,5 +85,23 @@
       Simulación de concienciación sobre ciberseguridad – Departamento de IT
     </footer>
   </div>
+
+  <script>
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const usuario = params.get("id") || "Desconocido";
+
+      fetch("https://script.google.com/macros/s/AKfycbyES8OVwDWETEYGEwQZR370vYskk80t5yjZtKmz4cZ263aF9CrFBP5ueGq5514dXKf7OA/exec", {
+        method: "POST",
+        body: JSON.stringify({
+          usuario: usuario,
+          userAgent: navigator.userAgent
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    };
+  </script>
 </body>
 </html>
